@@ -71,7 +71,7 @@ resource "aws_route53_record" "this" {
 }
 
 resource "aws_route53_record" "alias_record" {
-  for_each = var.aliases != null ? [toset(var.aliases)] : []
+  for_each = var.aliases != null ? toset(var.aliases) : []
 
   name    = each.key
   type    = "A"
